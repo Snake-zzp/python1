@@ -1,0 +1,22 @@
+# coding: UTF8
+# 建立屏蔽词
+def input_words():
+	f = open("word.txt","w")
+	f.writelines(["我\n","和\n","你\n","you\n","I\n"])
+	f.close()
+	
+input_words()
+content = raw_input("请输入一段话：")
+textcontent = content.decode("utf-8")
+f = open("word.txt","r")
+lines = f.readlines()
+f.close()
+# lines.replace("space","")
+# lines.strip()
+# print lines
+for l in lines:
+	textword = l.strip().decode("utf-8")
+# strip(rm)当rm为空时，默认删除空白符（包括'\n', '\r',  '\t',  ' ')
+	if textword in textcontent:
+		textcontent = textcontent.replace(textword,"*"*len(textword))
+print(textcontent).encode("utf-8")
