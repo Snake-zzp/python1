@@ -19,8 +19,8 @@ message['To']=receivers[0]
 
 #开始正式发送
 try:
-    # smtpObj=smtplib.SMTP()
-    # smtpObj.connect(mail_host,25)
+    # smtpObj=smtplib.SMTP()#设置一个SMTP对象（实例）
+    # smtpObj.connect(mail_host,25)#25 为非ssl协议端口号；连接主机
     smtpObj=smtplib.SMTP_SSL(mail_host)
     smtpObj.login(mail_user,mail_pass)
     smtpObj.sendmail(
